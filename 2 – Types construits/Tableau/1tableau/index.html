@@ -1,0 +1,1951 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../4tupledict/">
+      
+      
+        <link rel="next" href="../2matrice/">
+      
+      
+      <link rel="icon" href="../../../assets/laptop-code.svg">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.8">
+    
+    
+      
+        <title>Introduction aux tableaux - 1ère NSI</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.046329b4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.85d0ee34.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_markdown_exec_ansi.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction-aux-tableaux" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../.." title="1ère NSI" class="md-header__button md-logo" aria-label="1ère NSI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            1ère NSI
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introduction aux tableaux
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="1ère NSI" class="md-nav__button md-logo" aria-label="1ère NSI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
+
+    </a>
+    1ère NSI
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Accueil
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    1 – Types de base
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            1 – Types de base
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1%20%E2%80%93%20Types%20de%20base/1entier/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Représentation des entiers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1%20%E2%80%93%20Types%20de%20base/2relatif/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Représentation des entiers relatifs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1%20%E2%80%93%20Types%20de%20base/3flottant/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Représentation approximative des nombres réels
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1%20%E2%80%93%20Types%20de%20base/5bool/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Les valeurs booléennes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1%20%E2%80%93%20Types%20de%20base/6char/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Représentation des caractères
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1%20%E2%80%93%20Types%20de%20base/7recap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Récapitulatif
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2 – Types construits
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            2 – Types construits
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4tupledict/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tuples et Dictionnaires
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tableau
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Tableau
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Introduction aux tableaux
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Introduction aux tableaux
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#notion-de-tableau-et-dindices" class="md-nav__link">
+    Notion de tableau et d'indices
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tableau-liste-en-python" class="md-nav__link">
+    Tableau / liste en Python
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modifier-une-liste" class="md-nav__link">
+    Modifier une liste
+  </a>
+  
+    <nav class="md-nav" aria-label="Modifier une liste">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modifier-dun-element-a-lindice" class="md-nav__link">
+    Modifier d'un élement à l'indice
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ajouter-un-element-en-fin-de-liste" class="md-nav__link">
+    Ajouter un élément en fin de liste
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supprimer-un-element" class="md-nav__link">
+    Supprimer un élément
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parcourir-une-liste" class="md-nav__link">
+    Parcourir une liste
+  </a>
+  
+    <nav class="md-nav" aria-label="Parcourir une liste">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parcours-par-element" class="md-nav__link">
+    Parcours par élément
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parcours-par-indice" class="md-nav__link">
+    Parcours par indice
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parcours-par-element-et-indice" class="md-nav__link">
+    Parcours par élément et indice
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creer-une-liste" class="md-nav__link">
+    Créer une liste
+  </a>
+  
+    <nav class="md-nav" aria-label="Créer une liste">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initialisation-explicite" class="md-nav__link">
+    Initialisation explicite
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avec-une-bouble-for" class="md-nav__link">
+    Avec une bouble for
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elements-identiques" class="md-nav__link">
+    Élements identiques
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#liste-en-comprehension" class="md-nav__link">
+    Liste en compréhension
+  </a>
+  
+    <nav class="md-nav" aria-label="Liste en compréhension">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#syntaxe-de-base" class="md-nav__link">
+    Syntaxe de base
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#syntaxe-avec-filtre" class="md-nav__link">
+    Syntaxe avec filtre
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercices" class="md-nav__link">
+    Exercices
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2matrice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tableaux à plusieurs dimensions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3avancee/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Compléments sur les listes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    3 – Tables de données
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            3 – Tables de données
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3%20%E2%80%93%20Tables%20de%20donn%C3%A9es/1intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tables de données
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3%20%E2%80%93%20Tables%20de%20donn%C3%A9es/2operations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Opérations sur les tables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3%20%E2%80%93%20Tables%20de%20donn%C3%A9es/3fusion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fusion de tables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3%20%E2%80%93%20Tables%20de%20donn%C3%A9es/4tp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP Pokédex
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    4 – IHM Web
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            4 – IHM Web
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../4%20%E2%80%93%20IHM%20Web/1intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Interactions entre l'Homme et la Machine sur le Web
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../4%20%E2%80%93%20IHM%20Web/2static/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Page statique : HTML & CSS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../4%20%E2%80%93%20IHM%20Web/3js/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Page dynamique : JavaScript
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    5 – Architecture
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            5 – Architecture
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../5%20%E2%80%93%20Architecture/1intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Le modèle d'architecture séquentielle (Von Neumann)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../5%20%E2%80%93%20Architecture/2complements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Compléments
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../5%20%E2%80%93%20Architecture/3sim/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP Simulation d'une machine & Assembleur
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../5%20%E2%80%93%20Architecture/4os/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.62 8.35c-.42.28-1.75 1.04-1.95 1.19-.39.31-.75.29-1.14-.01-.2-.16-1.53-.92-1.95-1.19-.48-.31-.45-.7.08-.92 1.64-.69 3.28-.64 4.91.03.49.21.51.6.05.9m7.22 7.28c-.93-2.09-2.2-3.99-3.84-5.66a4.31 4.31 0 0 1-1.06-1.88c-.1-.33-.17-.67-.24-1.01-.2-.88-.29-1.78-.7-2.61-.73-1.58-2-2.4-3.84-2.47-1.81.05-3.16.81-3.95 2.4-.21.43-.36.88-.46 1.34-.17.76-.32 1.55-.5 2.32-.15.65-.45 1.21-.96 1.71-1.61 1.57-2.9 3.37-3.88 5.35-.14.29-.28.58-.37.88-.19.66.29 1.12.99.96.44-.09.88-.18 1.3-.31.41-.15.57-.05.67.35.65 2.15 2.07 3.66 4.24 4.5 4.12 1.56 8.93-.66 9.97-4.58.07-.27.17-.37.47-.27.46.14.93.24 1.4.35.49.09.85-.16.92-.64.03-.26-.06-.49-.16-.73"/></svg>
+  
+  <span class="md-ellipsis">
+    Les systèmes d'exploitation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../5%20%E2%80%93%20Architecture/5shell/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP Shell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../5%20%E2%80%93%20Architecture/6filius/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP Filius
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    6 – Programmation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            6 – Programmation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6%20%E2%80%93%20Programmation/1intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6%20%E2%80%93%20Programmation/2variables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Les variables et les types
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6%20%E2%80%93%20Programmation/3if/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    L'instruction conditionnelle if
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6%20%E2%80%93%20Programmation/4while/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    La boucle while
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6%20%E2%80%93%20Programmation/5for/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    La boucle for
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6%20%E2%80%93%20Programmation/6fonctions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Les fonctions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    8 – Défi
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            8 – Défi
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../8%20%E2%80%93%20D%C3%A9fi/1index/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Défis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#notion-de-tableau-et-dindices" class="md-nav__link">
+    Notion de tableau et d'indices
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tableau-liste-en-python" class="md-nav__link">
+    Tableau / liste en Python
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modifier-une-liste" class="md-nav__link">
+    Modifier une liste
+  </a>
+  
+    <nav class="md-nav" aria-label="Modifier une liste">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modifier-dun-element-a-lindice" class="md-nav__link">
+    Modifier d'un élement à l'indice
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ajouter-un-element-en-fin-de-liste" class="md-nav__link">
+    Ajouter un élément en fin de liste
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supprimer-un-element" class="md-nav__link">
+    Supprimer un élément
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parcourir-une-liste" class="md-nav__link">
+    Parcourir une liste
+  </a>
+  
+    <nav class="md-nav" aria-label="Parcourir une liste">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parcours-par-element" class="md-nav__link">
+    Parcours par élément
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parcours-par-indice" class="md-nav__link">
+    Parcours par indice
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parcours-par-element-et-indice" class="md-nav__link">
+    Parcours par élément et indice
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creer-une-liste" class="md-nav__link">
+    Créer une liste
+  </a>
+  
+    <nav class="md-nav" aria-label="Créer une liste">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initialisation-explicite" class="md-nav__link">
+    Initialisation explicite
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avec-une-bouble-for" class="md-nav__link">
+    Avec une bouble for
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elements-identiques" class="md-nav__link">
+    Élements identiques
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#liste-en-comprehension" class="md-nav__link">
+    Liste en compréhension
+  </a>
+  
+    <nav class="md-nav" aria-label="Liste en compréhension">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#syntaxe-de-base" class="md-nav__link">
+    Syntaxe de base
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#syntaxe-avec-filtre" class="md-nav__link">
+    Syntaxe avec filtre
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercices" class="md-nav__link">
+    Exercices
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<div><h1 id="introduction-aux-tableaux">Introduction aux tableaux</h1>
+<p><img alt="⚠" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/26a0.svg" title=":warning:"> <a href="https://capytale2.ac-paris.fr/web/c/cca5-863835">Activité Capytale</a> <img alt="⚠" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/26a0.svg" title=":warning:"></p>
+<p>Considérons un scénario dans lequel vous devez calculer la moyenne de 100 nombres entiers saisis par l'utilisateur. Pour l'instant à votre niveau, la seule solution serait d'effectuer 100 opérations <code class="highlight"><span class="nb">input</span><span class="p">()</span></code> pour stocker les valeurs saisies dans 100 variables différentes. Puis calculer la moyenne à partir de celles-ci. Ce serait évidemment très fastidieux, c'est pourquoi le concept de tableau devient nécessaire.</p>
+<h2 id="notion-de-tableau-et-dindices">Notion de tableau et d'indices</h2>
+<p>En programmation, un <strong>tableau</strong>  est une séquence ordonnée de valeurs de même type. Il se rapproche de la notion de vecteur en mathématiques.</p>
+<figure>
+<p><img alt="Image title" src="../images/tableau.png" width="500">
+  </p>
+<figcaption>Représentation usuelle d'un tableau d'entiers à 6 cases (ou cellules)</figcaption>
+</figure>
+<p>Stockons ce tableau dans une variable <code>t</code>. Ce tableau est <strong>ordonné</strong> : le 1er élement est 4, le deuxième est 2, et le dernier 12.</p>
+<p>On repère chaque élément du tableau par sa position, le numéro de la case, qu'on appelle <strong>indice</strong>.</p>
+<figure>
+<p><img alt="Image title" src="../images/tableau_indice.png" width="500">
+  </p>
+<figcaption>Le premier indice d'un tableau est 0 !</figcaption>
+</figure>
+<p>On note <code>t[i]</code> pour désigner l'élement d'indice <code>i</code> du tableau <code>t</code>. Par exemple, dans notre exemple, <code>t[3]</code> renvoie la vlauer 42.</p>
+<p>La <strong>taille</strong> ou longueur d'un tableau est le nombre d'éléments qu'il contient. Ici, le tableau <code>t</code> a une taille égale à 6.</p>
+<h2 id="tableau-liste-en-python">Tableau / liste en Python</h2>
+<p>En python, le type <code class="highlight"><span class="nb">list</span></code> implémente le type abstrait de tableau. Un tableau est définit avec des crochets et on sépare ses éléments par des virgules. Par abus de langage on parle de liste plutôt que de tableau.</p>
+<p>Une liste vide se déclarera par <code>[]</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="k">class</span> <span class="err">'</span><span class="nc">list</span><span class="s1">'&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="mi">42</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="mi">6</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+<span class="n">File</span> <span class="s2">"&lt;pyshell&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">IndexError</span><span class="p">:</span> <span class="nb">list</span> <span class="n">index</span> <span class="n">out</span> <span class="n">of</span> <span class="nb">range</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="mi">12</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">liste_vide</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">liste_vide</span><span class="p">)</span>
+<span class="mi">0</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">A retenir</p>
+<ul>
+<li>
+<p>La fonction <code class="highlight"><span class="nb">len</span></code> renvoie la taille de la liste donnée (et même de tout autre itérable !)</p>
+</li>
+<li>
+<p>Le premier élément d'une liste est à l'indice <code class="highlight"><span class="mi">0</span></code> et le dernier à l'indice <code class="highlight"><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span></code> </p>
+</li>
+<li>
+<p>L'indice <code class="highlight"><span class="o">-</span><span class="mi">1</span></code> permet d'accèder facilement au dernier élement. </p>
+</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Euh Python ?</p>
+<p>En réalité, une liste désigne une autre structure de données complètement différente en informatique (liste chaînée), ce qui prête à confusion. Il faudrait donc privilégier le terme de <em>tableau</em>.</p>
+</div>
+<h2 id="modifier-une-liste">Modifier une liste</h2>
+<p>En python, les objets de type <code>list</code>sont modifiables (ou <em>mutable</em>) arpès leur création.</p>
+<h3 id="modifier-dun-element-a-lindice">Modifier d'un élement à l'indice</h3>
+<p>On modifie un élément du tableau par simple affectation, en écrasant sa valeur avec la nouvelle.</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">famille</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Bart"</span><span class="p">,</span> <span class="s2">"Lisa"</span><span class="p">,</span> <span class="s2">"Maggie"</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">famille</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bartholomew"</span> <span class="c1"># oui, c'est son vrai nom</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">famille</span>
+<span class="p">[</span><span class="s1">'Bartholomew'</span><span class="p">,</span> <span class="s1">'Lisa'</span><span class="p">,</span> <span class="s1">'Maggie'</span><span class="p">]</span>   
+</code></pre></div>
+<h3 id="ajouter-un-element-en-fin-de-liste">Ajouter un élément en fin de liste</h3>
+<p>La méthode <code class="highlight"><span class="n">append</span></code> permet d'ajouter un élément en fin de liste (et donc d'augmenter la taille de la liste).</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">famille</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Bart"</span><span class="p">,</span> <span class="s2">"Lisa"</span><span class="p">,</span> <span class="s2">"Maggie"</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">famille</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"Homer"</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">famille</span>
+<span class="p">[</span><span class="s1">'Bartholomew'</span><span class="p">,</span> <span class="s1">'Lisa'</span><span class="p">,</span> <span class="s1">'Maggie'</span><span class="p">,</span> <span class="s1">'Homer'</span><span class="p">]</span>   
+</code></pre></div>
+<div class="admonition note différence entre fonctions et méthodes">
+<p class="admonition-title">Note</p>
+<p>En programmation, on peut définir nos propres types grâce à l'utilisation de  classe. Une classe est composée de membres (variables) et de méthodes (fonctions) qui agissent sur ces membres. Un objet est une instance d'une classe. 
+</p><div class="highlight"><pre><span></span><code><span class="n">objet</span><span class="o">.</span><span class="n">membre</span>
+<span class="n">objet</span><span class="o">.</span><span class="n">methode</span><span class="p">(</span><span class="n">arguments</span><span class="o">...</span><span class="p">)</span>
+</code></pre></div>
+Par exemple, <code>t</code> est un objet de la classe <code class="highlight"><span class="nb">list</span></code> dont la méthode <code>append</code> permet de lui ajouter un élément en fin de liste.
+</div>
+<h3 id="supprimer-un-element">Supprimer un élément</h3>
+<p>La métode <code>remove</code> permet de supprimer la première occurrence de l'élément (et seulement la première). À condition bien entendu que l'élément soit dans la liste.</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">matieres</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"nsi"</span><span class="p">,</span> <span class="s2">"maths"</span><span class="p">,</span> <span class="s2">"anglais"</span><span class="p">,</span> <span class="s2">"français"</span><span class="p">,</span> <span class="s2">"maths"</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">matieres</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">"maths"</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">matieres</span>
+<span class="p">[</span><span class="s2">"nsi"</span><span class="p">,</span> <span class="s2">"anglais"</span><span class="p">,</span> <span class="s2">"français"</span><span class="p">,</span> <span class="s2">"maths"</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">matieres</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">"espagnol"</span><span class="p">)</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+<span class="n">File</span> <span class="s2">"&lt;pyshell&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">ValueError</span><span class="p">:</span> <span class="nb">list</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">list</span>
+</code></pre></div>
+<h2 id="parcourir-une-liste">Parcourir une liste</h2>
+<p>Il existe principalement deux méthodes pour parcourir une liste : par ses éléments ou par les indices. Mais dans les deux cas on utilise une boucle <code class="highlight"><span class="k">for</span></code>.</p>
+<h3 id="parcours-par-element">Parcours par élément</h3>
+<div class="highlight"><pre><span></span><code><span class="n">famille</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Bart"</span><span class="p">,</span> <span class="s2">"Lisa"</span><span class="p">,</span> <span class="s2">"Maggie"</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">membre</span> <span class="ow">in</span> <span class="n">famille</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">membre</span><span class="p">)</span>
+</code></pre></div>
+<p>Affiche :</p>
+<div class="highlight"><pre><span></span><code>Bart
+Lisa
+Maggie
+</code></pre></div>
+<h3 id="parcours-par-indice">Parcours par indice</h3>
+<p>Chaque élément étant accessible par son indice (de <code class="highlight"><span class="mi">0</span></code> à <code class="highlight"><span class="nb">len</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span></code>), il suffit de faire parcourir à une variable <code>i</code> l'ensemble des entiers de <code class="highlight"><span class="mi">0</span></code> à <code class="highlight"><span class="nb">len</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span></code>, par l'instruction <code class="highlight"><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">liste</span><span class="p">))</span></code> :</p>
+<div class="highlight"><pre><span></span><code><span class="n">famille</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Bart"</span><span class="p">,</span> <span class="s2">"Lisa"</span><span class="p">,</span> <span class="s2">"Maggie"</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">famille</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">famille</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</code></pre></div>
+<p>Affiche :</p>
+<div class="highlight"><pre><span></span><code>0 Bart
+1 Lisa
+2 Maggie
+</code></pre></div>
+<h3 id="parcours-par-element-et-indice">Parcours par élément et indice</h3>
+<p>Parfois on veut avoir l'indice et l'élement en même temps, on peut alors utiliser la fonction <code class="highlight"><span class="nb">enumerate</span></code>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">famille</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Bart"</span><span class="p">,</span> <span class="s2">"Lisa"</span><span class="p">,</span> <span class="s2">"Maggie"</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">membre</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">famille</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">membre</span><span class="p">)</span>
+</code></pre></div>
+<p>Affiche :</p>
+<div class="highlight"><pre><span></span><code>0 Bart
+1 Lisa
+2 Maggie
+</code></pre></div>
+<h2 id="creer-une-liste">Créer une liste</h2>
+<h3 id="initialisation-explicite">Initialisation explicite</h3>
+<div class="highlight"><pre><span></span><code><span class="n">tableau</span> <span class="o">=</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">46</span><span class="p">]</span>
+</code></pre></div>
+<h3 id="avec-une-bouble-for">Avec une bouble for</h3>
+<p>On crée une liste vide, puis on lui ajoute les éléments au fur et à mesure grâce à une boucle for. Par exemple, création d'une liste contenant les entiers multiples de 3 ou de 5 inférieurs à 100 :</p>
+<div class="highlight"><pre><span></span><code><span class="n">multiples</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">101</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">k</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">k</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">multiples</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="elements-identiques">Élements identiques</h3>
+<p>Il est souvent pratique d'initialiser une liste de taille donnée, souvent en la remplissant de la même valeur, souvent 0. Par exemple, pour produire une liste contenant 26 zéros:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">lst</span> <span class="o">=</span> <span class="mi">26</span> <span class="o">*</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">lst</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</code></pre></div>
+<h3 id="liste-en-comprehension">Liste en compréhension</h3>
+<h4 id="syntaxe-de-base">Syntaxe de base</h4>
+<p>Sûrement la meilleure feature du langage Python. Elle permet de générer des listes complexes rapidement. La syntaxe la plus simple est :</p>
+<div class="highlight"><pre><span></span><code><span class="n">tableau</span> <span class="o">=</span> <span class="p">[</span><span class="n">expression</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">]</span>
+</code></pre></div>
+<p>Imaginons que veuille énumérer les 10 premiers carrées. En utilisant une boucle for :</p>
+<div class="highlight"><pre><span></span><code><span class="n">tab</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">tab</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">k</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+<p>On peut générer cette liste plus facilement en compréhension, en "rentrant" la boucle <code>for</code> dans les crochets de définition de la liste :</p>
+<div class="highlight"><pre><span></span><code><span class="n">tab</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+</code></pre></div>
+<p>Pour chaque élément <code>k</code> de l'itérable <code class="highlight"><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span></code>, on génère l'élément <code class="highlight"><span class="n">k</span> <span class="o">**</span> <span class="mi">2</span></code> de la liste !</p>
+<h4 id="syntaxe-avec-filtre">Syntaxe avec filtre</h4>
+<p>La syntaxe d'une liste en compréhension avec filtre :</p>
+<div class="highlight"><pre><span></span><code><span class="n">tableau</span> <span class="o">=</span> <span class="p">[</span><span class="n">expression</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">iterable</span> <span class="k">if</span> <span class="n">condition</span><span class="p">]</span>
+</code></pre></div>
+<p>Par exemple, on souhaite garder les valeurs positives de la liste suivante :</p>
+<div class="highlight"><pre><span></span><code><span class="n">tab</span> <span class="o">=</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="o">-</span><span class="mi">16</span><span class="p">,</span> <span class="o">-</span><span class="mi">18</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">]</span>
+</code></pre></div>
+<p>Avec une boucle for, une solution serait :</p>
+<div class="highlight"><pre><span></span><code><span class="n">tab_positif</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">tab</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">val</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">tab_positif</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+</code></pre></div>
+<p>On peut créer la même chose en compréhension, en incluant l'instruction conditionnelle <code class="highlight"><span class="k">if</span></code> dans la définition de la liste :</p>
+<div class="highlight"><pre><span></span><code><span class="n">tab_positif</span> <span class="o">=</span> <span class="p">[</span><span class="n">val</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">tab</span> <span class="k">if</span> <span class="n">val</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">]</span>
+</code></pre></div>
+<h2 id="exercices">Exercices</h2>
+<div class="admonition example">
+<p class="admonition-title">Exercice 1</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Énoncé</label><label for="__tabbed_1_2">Solution</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Dans la liste suivante:</p>
+<ul>
+<li>remplacer <code>"Loki"</code> par <code>"Thor"</code></li>
+<li>ajouter <code>"Dr. Strange"</code></li>
+<li>supprimer l'intrus.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">avengers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Black Widow"</span><span class="p">,</span> <span class="s2">"Captain America"</span><span class="p">,</span> <span class="s2">"Loki"</span><span class="p">,</span> <span class="s2">"Iron Man"</span><span class="p">,</span> <span class="s2">"Hulk"</span><span class="p">,</span> <span class="s2">"Batman"</span><span class="p">,</span> <span class="s2">"Hawkeye"</span><span class="p">]</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">avengers</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'Thor'</span>
+<span class="n">avengers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'Dr. Strange'</span><span class="p">)</span>
+<span class="n">avengers</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">'Batman'</span><span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Exercice 2</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Énoncé</label><label for="__tabbed_2_2">Solution</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Construire une liste de 100 éléments tous égaux à 0. Puis remplacer tous les éléments d'indice impair par des 1.</p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">tab</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">tab</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+</code></pre></div>
+<p>Ou plus optimisé :</p>
+<div class="highlight"><pre><span></span><code><span class="n">tab</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">):</span>
+    <span class="n">tab</span><span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+</code></pre></div>
+<p>Ou en liste de compréhension (et condition ternaire) :</p>
+<div class="highlight"><pre><span></span><code><span class="n">tab</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)]</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Exercice 3</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Énoncé</label><label for="__tabbed_3_2">Solution</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Trouvez le nombre qui est <strong>exactement à la même place</strong> dans la liste <code>list1</code> et dans la liste <code>list2</code>, sachant que :</p>
+<ul>
+<li>les deux listes ont la même taille</li>
+<li>vous n'avez droit qu'à une seule boucle <code>for</code>. </li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">8468</span><span class="p">,</span> <span class="mi">4560</span><span class="p">,</span> <span class="mi">3941</span><span class="p">,</span> <span class="mi">3328</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9910</span><span class="p">,</span> <span class="mi">9208</span><span class="p">,</span> <span class="mi">8400</span><span class="p">,</span> <span class="mi">6502</span><span class="p">,</span> <span class="mi">1076</span><span class="p">,</span> <span class="mi">5921</span><span class="p">,</span> <span class="mi">6720</span><span class="p">,</span> <span class="mi">948</span><span class="p">,</span> <span class="mi">9561</span><span class="p">,</span> <span class="mi">7391</span><span class="p">,</span> <span class="mi">7745</span><span class="p">,</span> <span class="mi">9007</span><span class="p">,</span> <span class="mi">9707</span><span class="p">,</span> <span class="mi">4370</span><span class="p">,</span> <span class="mi">9636</span><span class="p">,</span> <span class="mi">5265</span><span class="p">,</span> <span class="mi">2638</span><span class="p">,</span> <span class="mi">8919</span><span class="p">,</span> <span class="mi">7814</span><span class="p">,</span> <span class="mi">5142</span><span class="p">,</span> <span class="mi">1060</span><span class="p">,</span> <span class="mi">6971</span><span class="p">,</span> <span class="mi">4065</span><span class="p">,</span> <span class="mi">4629</span><span class="p">,</span> <span class="mi">4490</span><span class="p">,</span> <span class="mi">2480</span><span class="p">,</span> <span class="mi">9180</span><span class="p">,</span> <span class="mi">5623</span><span class="p">,</span> <span class="mi">6600</span><span class="p">,</span> <span class="mi">1764</span><span class="p">,</span> <span class="mi">9846</span><span class="p">,</span> <span class="mi">7605</span><span class="p">,</span> <span class="mi">8271</span><span class="p">,</span> <span class="mi">4681</span><span class="p">,</span> <span class="mi">2818</span><span class="p">,</span> <span class="mi">832</span><span class="p">,</span> <span class="mi">5280</span><span class="p">,</span> <span class="mi">3170</span><span class="p">,</span> <span class="mi">8965</span><span class="p">,</span> <span class="mi">4332</span><span class="p">,</span> <span class="mi">3198</span><span class="p">,</span> <span class="mi">9454</span><span class="p">,</span> <span class="mi">2025</span><span class="p">,</span> <span class="mi">2373</span><span class="p">,</span> <span class="mi">4067</span><span class="p">]</span>
+<span class="n">list2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">9093</span><span class="p">,</span> <span class="mi">2559</span><span class="p">,</span> <span class="mi">9664</span><span class="p">,</span> <span class="mi">8075</span><span class="p">,</span> <span class="mi">4525</span><span class="p">,</span> <span class="mi">5847</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">8932</span><span class="p">,</span> <span class="mi">5049</span><span class="p">,</span> <span class="mi">5241</span><span class="p">,</span> <span class="mi">5886</span><span class="p">,</span> <span class="mi">1393</span><span class="p">,</span> <span class="mi">9413</span><span class="p">,</span> <span class="mi">8872</span><span class="p">,</span> <span class="mi">2560</span><span class="p">,</span> <span class="mi">4636</span><span class="p">,</span> <span class="mi">9004</span><span class="p">,</span> <span class="mi">7586</span><span class="p">,</span> <span class="mi">1461</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">2627</span><span class="p">,</span> <span class="mi">2187</span><span class="p">,</span> <span class="mi">7778</span><span class="p">,</span> <span class="mi">8933</span><span class="p">,</span> <span class="mi">351</span><span class="p">,</span> <span class="mi">7097</span><span class="p">,</span> <span class="mi">356</span><span class="p">,</span> <span class="mi">4110</span><span class="p">,</span> <span class="mi">1393</span><span class="p">,</span> <span class="mi">4864</span><span class="p">,</span> <span class="mi">1088</span><span class="p">,</span> <span class="mi">3904</span><span class="p">,</span> <span class="mi">5623</span><span class="p">,</span> <span class="mi">8040</span><span class="p">,</span> <span class="mi">7273</span><span class="p">,</span> <span class="mi">1114</span><span class="p">,</span> <span class="mi">4394</span><span class="p">,</span> <span class="mi">4108</span><span class="p">,</span> <span class="mi">7123</span><span class="p">,</span> <span class="mi">8001</span><span class="p">,</span> <span class="mi">5715</span><span class="p">,</span> <span class="mi">7215</span><span class="p">,</span> <span class="mi">7460</span><span class="p">,</span> <span class="mi">5829</span><span class="p">,</span> <span class="mi">9513</span><span class="p">,</span> <span class="mi">1256</span><span class="p">,</span> <span class="mi">4052</span><span class="p">,</span> <span class="mi">1585</span><span class="p">,</span> <span class="mi">1608</span><span class="p">,</span> <span class="mi">3941</span><span class="p">]</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">8468</span><span class="p">,</span> <span class="mi">4560</span><span class="p">,</span> <span class="mi">3941</span><span class="p">,</span> <span class="mi">3328</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9910</span><span class="p">,</span> <span class="mi">9208</span><span class="p">,</span> <span class="mi">8400</span><span class="p">,</span> <span class="mi">6502</span><span class="p">,</span> <span class="mi">1076</span><span class="p">,</span> <span class="mi">5921</span><span class="p">,</span> <span class="mi">6720</span><span class="p">,</span> <span class="mi">948</span><span class="p">,</span> <span class="mi">9561</span><span class="p">,</span> <span class="mi">7391</span><span class="p">,</span> <span class="mi">7745</span><span class="p">,</span> <span class="mi">9007</span><span class="p">,</span> <span class="mi">9707</span><span class="p">,</span> <span class="mi">4370</span><span class="p">,</span> <span class="mi">9636</span><span class="p">,</span> <span class="mi">5265</span><span class="p">,</span> <span class="mi">2638</span><span class="p">,</span> <span class="mi">8919</span><span class="p">,</span> <span class="mi">7814</span><span class="p">,</span> <span class="mi">5142</span><span class="p">,</span> <span class="mi">1060</span><span class="p">,</span> <span class="mi">6971</span><span class="p">,</span> <span class="mi">4065</span><span class="p">,</span> <span class="mi">4629</span><span class="p">,</span> <span class="mi">4490</span><span class="p">,</span> <span class="mi">2480</span><span class="p">,</span> <span class="mi">9180</span><span class="p">,</span> <span class="mi">5623</span><span class="p">,</span> <span class="mi">6600</span><span class="p">,</span> <span class="mi">1764</span><span class="p">,</span> <span class="mi">9846</span><span class="p">,</span> <span class="mi">7605</span><span class="p">,</span> <span class="mi">8271</span><span class="p">,</span> <span class="mi">4681</span><span class="p">,</span> <span class="mi">2818</span><span class="p">,</span> <span class="mi">832</span><span class="p">,</span> <span class="mi">5280</span><span class="p">,</span> <span class="mi">3170</span><span class="p">,</span> <span class="mi">8965</span><span class="p">,</span> <span class="mi">4332</span><span class="p">,</span> <span class="mi">3198</span><span class="p">,</span> <span class="mi">9454</span><span class="p">,</span> <span class="mi">2025</span><span class="p">,</span> <span class="mi">2373</span><span class="p">,</span> <span class="mi">4067</span><span class="p">]</span>
+<span class="n">list2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">9093</span><span class="p">,</span> <span class="mi">2559</span><span class="p">,</span> <span class="mi">9664</span><span class="p">,</span> <span class="mi">8075</span><span class="p">,</span> <span class="mi">4525</span><span class="p">,</span> <span class="mi">5847</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">8932</span><span class="p">,</span> <span class="mi">5049</span><span class="p">,</span> <span class="mi">5241</span><span class="p">,</span> <span class="mi">5886</span><span class="p">,</span> <span class="mi">1393</span><span class="p">,</span> <span class="mi">9413</span><span class="p">,</span> <span class="mi">8872</span><span class="p">,</span> <span class="mi">2560</span><span class="p">,</span> <span class="mi">4636</span><span class="p">,</span> <span class="mi">9004</span><span class="p">,</span> <span class="mi">7586</span><span class="p">,</span> <span class="mi">1461</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">2627</span><span class="p">,</span> <span class="mi">2187</span><span class="p">,</span> <span class="mi">7778</span><span class="p">,</span> <span class="mi">8933</span><span class="p">,</span> <span class="mi">351</span><span class="p">,</span> <span class="mi">7097</span><span class="p">,</span> <span class="mi">356</span><span class="p">,</span> <span class="mi">4110</span><span class="p">,</span> <span class="mi">1393</span><span class="p">,</span> <span class="mi">4864</span><span class="p">,</span> <span class="mi">1088</span><span class="p">,</span> <span class="mi">3904</span><span class="p">,</span> <span class="mi">5623</span><span class="p">,</span> <span class="mi">8040</span><span class="p">,</span> <span class="mi">7273</span><span class="p">,</span> <span class="mi">1114</span><span class="p">,</span> <span class="mi">4394</span><span class="p">,</span> <span class="mi">4108</span><span class="p">,</span> <span class="mi">7123</span><span class="p">,</span> <span class="mi">8001</span><span class="p">,</span> <span class="mi">5715</span><span class="p">,</span> <span class="mi">7215</span><span class="p">,</span> <span class="mi">7460</span><span class="p">,</span> <span class="mi">5829</span><span class="p">,</span> <span class="mi">9513</span><span class="p">,</span> <span class="mi">1256</span><span class="p">,</span> <span class="mi">4052</span><span class="p">,</span> <span class="mi">1585</span><span class="p">,</span> <span class="mi">1608</span><span class="p">,</span> <span class="mi">3941</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">list1</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">list1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">list2</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">list1</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</code></pre></div>
+<p>Ici, on aurait bien aimé parcourir par élément et non par indice. Il existe une fonction justement qui permet de combiner plusieurs itérables entre-eux, la fonction <code class="highlight"><span class="nb">zip</span></code> !</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">e1</span><span class="p">,</span> <span class="n">e2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">list1</span><span class="p">,</span> <span class="n">list2</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">e1</span> <span class="o">==</span> <span class="n">e2</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">e1</span><span class="p">)</span>
+</code></pre></div>
+<p>C'est plus joli, non ? C'est sûrement trop avancé. Mon tuteur ne veut pas que je vous fasse de vous des experts de Python. Mais sachez que cette fonction se retrouve dans quasiment tous les langages de programmation respectables. Sinon, codez-la.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Exercice 4</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked id="__tabbed_4_1" name="__tabbed_4" type="radio"><input id="__tabbed_4_2" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1">Énoncé</label><label for="__tabbed_4_2">Solution</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>On considère la liste </p>
+<div class="highlight"><pre><span></span><code><span class="n">temp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="o">-</span><span class="mi">16</span><span class="p">,</span> <span class="o">-</span><span class="mi">18</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="o">-</span><span class="mi">14</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">17</span><span class="p">,</span> <span class="o">-</span><span class="mi">13</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="o">-</span><span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">18</span><span class="p">,</span> <span class="o">-</span><span class="mi">9</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="o">-</span><span class="mi">11</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">18</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="o">-</span><span class="mi">16</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+</code></pre></div>
+<p>Construire la liste <code>temp_pos</code> qui ne contient que les éléments positifs de <code>temp</code>. </p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">temp_pos</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">temp</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">t</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">temp_pos</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</code></pre></div>
+<p>Vous avez voulu utliser la méthode <code>.remove</code> ? Ne pas <strong>ajouter ni retirer</strong> d'éléments de la liste pendant que vous la <strong>parcourez</strong> ! Modifier ses éléments est OK.</p>
+<p>Autre solution (liste en compréhension) :</p>
+<div class="highlight"><pre><span></span><code><span class="n">temp_pos</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">temp</span> <span class="k">if</span> <span class="n">t</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">]</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Exercice 5 (BNS)</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked id="__tabbed_5_1" name="__tabbed_5" type="radio"><input id="__tabbed_5_2" name="__tabbed_5" type="radio"><div class="tabbed-labels"><label for="__tabbed_5_1">Énoncé</label><label for="__tabbed_5_2">Solution</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Programmer la fonction <code>recherche</code>, prenant en paramètre un tableau non vide <code>tab</code> (type <code>list</code>) d'entiers et un entier <code>n</code>, et qui renvoie l'indice de la dernière occurrence de l'élément cherché. Si l'élément n'est pas présent, la fonction renvoie la longueur du tableau.</p>
+<p>Exemples :</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">recherche</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span><span class="mi">1</span><span class="p">)</span>
+<span class="mi">2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">recherche</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span><span class="mi">2</span><span class="p">)</span>
+<span class="mi">0</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">recherche</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span><span class="mi">2</span><span class="p">)</span>
+<span class="mi">3</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<!-- <code>python linenums='1'
+def recherche(tab: list, n: int) -&gt; int:
+    '''
+    Renvoie l'indice de la dernière occurence de l'entier n dans la liste tab.
+    Si tab est vide, renvoie la longueur de la liste tab.
+    '''
+    indice_max = len(tab) # valeur par défaut si tab est vide
+    for i in range(len(tab)):
+        if tab[i] == n:
+            indice_max = i
+    return i</code> -->
+</div>
+</div>
+</div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Exercice 6</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked id="__tabbed_6_1" name="__tabbed_6" type="radio"><input id="__tabbed_6_2" name="__tabbed_6" type="radio"><div class="tabbed-labels"><label for="__tabbed_6_1">Énoncé</label><label for="__tabbed_6_2">Solution</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Construire une liste de taille 26 contenant le nombre d'occurences de chaque lettre de l'alphabet dans le texte suivant:</p>
+<div class="highlight"><pre><span></span><code><span class="n">texte_long</span> <span class="o">=</span> <span class="s1">'''</span>
+<span class="s1">mpaowhuqhvyywtvypjkfrrasexnwzrgpargvpjlfbjsxxjipjgkyscgdiqswpvpbzigfkljhicuftshk</span>
+<span class="s1">qekwqojwchsgyuvakynjpxlacrnbojawdisjzbcqjflhgqofhccdxnqpbnxcxcypawaqgzbikretwlkf</span>
+<span class="s1">qodnoseirzvssdczsyczqjbugcgjuorxciblnojkvygxqirysffsmjyokjdsxlymjokgodupumjoxcmi</span>
+<span class="s1">teeenikwlkzidirjnmexsmqjefsgpbpoynusfpudmxwcwrzzqzuobjtlyshbvvgjkhoujsdlnsyfshuu</span>
+<span class="s1">mfmqmssbyrzybswyswbdmqmcwsdudrfdnmlmnchossxcwarfmpkrcqcyvyjkplzexrnebukxhqbnzkgh</span>
+<span class="s1">nalfpkxghypaimemqzmcreozagufiljxdmgrwftyajtonfisefxujtdmpgxttugxhvpgdqhvgzohovbe</span>
+<span class="s1">qaafwqfiokzhtbxgoxpzzvbswlxdtykgufqevlmjjrddufrogzsfzzuaqpqfzinvmfpcylgftkkhqylp</span>
+<span class="s1">rgzywwefwghhrivsjtvbbcixhztwujdqqesdertmtwdricrzmwsibhstsgnnxbvqnyklcbrcxtycvcww</span>
+<span class="s1">ojphbqyrjffndkgwqfqvarfupklwwixekudmbspqtydkegltqvwjzfooscehpnfwvvnkrxsfakwezvol</span>
+<span class="s1">mpvnprcrwomddjneyrhpxmnrveibxqxcjluezypvsbfudilpjdqflsdhwucjgtusxjjcnewamoewwjhu</span>
+<span class="s1">'''</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<!-- <code>python linenums='1'
+occurences = 26 * [0]
+for lettre in texte_long:
+    indice = ord(lettre) - ord('a')
+    occurences[indice] += 1</code> -->
+</div>
+</div>
+</div>
+</div></div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1810 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../1intro/">
+      
+      
+        <link rel="next" href="../3if/">
+      
+      
+      <link rel="icon" href="../../assets/laptop-code.svg">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.8">
+    
+    
+      
+        <title>Les variables et les types - 1ère NSI</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.046329b4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.85d0ee34.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_markdown_exec_ansi.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#les-variables-et-les-types" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../.." title="1ère NSI" class="md-header__button md-logo" aria-label="1ère NSI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            1ère NSI
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Les variables et les types
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="1ère NSI" class="md-nav__button md-logo" aria-label="1ère NSI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
+
+    </a>
+    1ère NSI
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Accueil
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    1 – Types de base
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            1 – Types de base
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1%20%E2%80%93%20Types%20de%20base/1entier/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Représentation des entiers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1%20%E2%80%93%20Types%20de%20base/2relatif/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Représentation des entiers relatifs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1%20%E2%80%93%20Types%20de%20base/3flottant/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Représentation approximative des nombres réels
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1%20%E2%80%93%20Types%20de%20base/5bool/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Les valeurs booléennes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1%20%E2%80%93%20Types%20de%20base/6char/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Représentation des caractères
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1%20%E2%80%93%20Types%20de%20base/7recap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Récapitulatif
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2 – Types construits
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            2 – Types construits
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2%20%E2%80%93%20Types%20construits/4tupledict/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tuples et Dictionnaires
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tableau
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Tableau
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2%20%E2%80%93%20Types%20construits/Tableau/1tableau/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction aux tableaux
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2%20%E2%80%93%20Types%20construits/Tableau/2matrice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tableaux à plusieurs dimensions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2%20%E2%80%93%20Types%20construits/Tableau/3avancee/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Compléments sur les listes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    3 – Tables de données
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            3 – Tables de données
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3%20%E2%80%93%20Tables%20de%20donn%C3%A9es/1intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tables de données
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3%20%E2%80%93%20Tables%20de%20donn%C3%A9es/2operations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Opérations sur les tables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3%20%E2%80%93%20Tables%20de%20donn%C3%A9es/3fusion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fusion de tables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3%20%E2%80%93%20Tables%20de%20donn%C3%A9es/4tp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP Pokédex
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    4 – IHM Web
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            4 – IHM Web
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4%20%E2%80%93%20IHM%20Web/1intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Interactions entre l'Homme et la Machine sur le Web
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4%20%E2%80%93%20IHM%20Web/2static/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Page statique : HTML & CSS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4%20%E2%80%93%20IHM%20Web/3js/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Page dynamique : JavaScript
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    5 – Architecture
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            5 – Architecture
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5%20%E2%80%93%20Architecture/1intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Le modèle d'architecture séquentielle (Von Neumann)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5%20%E2%80%93%20Architecture/2complements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Compléments
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5%20%E2%80%93%20Architecture/3sim/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP Simulation d'une machine & Assembleur
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5%20%E2%80%93%20Architecture/4os/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.62 8.35c-.42.28-1.75 1.04-1.95 1.19-.39.31-.75.29-1.14-.01-.2-.16-1.53-.92-1.95-1.19-.48-.31-.45-.7.08-.92 1.64-.69 3.28-.64 4.91.03.49.21.51.6.05.9m7.22 7.28c-.93-2.09-2.2-3.99-3.84-5.66a4.31 4.31 0 0 1-1.06-1.88c-.1-.33-.17-.67-.24-1.01-.2-.88-.29-1.78-.7-2.61-.73-1.58-2-2.4-3.84-2.47-1.81.05-3.16.81-3.95 2.4-.21.43-.36.88-.46 1.34-.17.76-.32 1.55-.5 2.32-.15.65-.45 1.21-.96 1.71-1.61 1.57-2.9 3.37-3.88 5.35-.14.29-.28.58-.37.88-.19.66.29 1.12.99.96.44-.09.88-.18 1.3-.31.41-.15.57-.05.67.35.65 2.15 2.07 3.66 4.24 4.5 4.12 1.56 8.93-.66 9.97-4.58.07-.27.17-.37.47-.27.46.14.93.24 1.4.35.49.09.85-.16.92-.64.03-.26-.06-.49-.16-.73"/></svg>
+  
+  <span class="md-ellipsis">
+    Les systèmes d'exploitation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5%20%E2%80%93%20Architecture/5shell/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP Shell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5%20%E2%80%93%20Architecture/6filius/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP Filius
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    6 – Programmation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            6 – Programmation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Les variables et les types
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Les variables et les types
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#definition-et-affectation" class="md-nav__link">
+    Définition et affectation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ce-quil-se-passe-en-memoire" class="md-nav__link">
+    Ce qu'il se passe en mémoire
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expressions-et-evaluations" class="md-nav__link">
+    Expressions et évaluations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types-de-variables" class="md-nav__link">
+    Types de variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regles-de-nommage" class="md-nav__link">
+    Règles de nommage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#afficher-une-variable" class="md-nav__link">
+    Afficher une variable
+  </a>
+  
+    <nav class="md-nav" aria-label="Afficher une variable">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#methode-directe" class="md-nav__link">
+    Méthode directe
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#demander-une-entree-a-lutilisateur" class="md-nav__link">
+    Demander une entrée à l'utilisateur
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3if/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    L'instruction conditionnelle if
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4while/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    La boucle while
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5for/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    La boucle for
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6fonctions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Les fonctions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    8 – Défi
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            8 – Défi
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../8%20%E2%80%93%20D%C3%A9fi/1index/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Défis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#definition-et-affectation" class="md-nav__link">
+    Définition et affectation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ce-quil-se-passe-en-memoire" class="md-nav__link">
+    Ce qu'il se passe en mémoire
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expressions-et-evaluations" class="md-nav__link">
+    Expressions et évaluations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types-de-variables" class="md-nav__link">
+    Types de variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regles-de-nommage" class="md-nav__link">
+    Règles de nommage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#afficher-une-variable" class="md-nav__link">
+    Afficher une variable
+  </a>
+  
+    <nav class="md-nav" aria-label="Afficher une variable">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#methode-directe" class="md-nav__link">
+    Méthode directe
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#demander-une-entree-a-lutilisateur" class="md-nav__link">
+    Demander une entrée à l'utilisateur
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<div><h1 id="les-variables-et-les-types">Les variables et les types</h1>
+<h2 id="definition-et-affectation">Définition et affectation</h2>
+<p>Une <strong>variable</strong> en programmation n'a pas du tout le même sens qu'en mathématiques. Une variable est une <strong>association</strong> entre un <strong>nom</strong> (son identifiant) et une <strong>valeur</strong> (de n'importe quel type). C'est bien la plus petite brique de base pour stocker une information et la manipuler. On peut se représenter une variable comme une boîte étiquetée dans laquelle on met quelque chose. Par exemple :</p>
+<div class="highlight"><pre><span></span><code><span class="n">toto</span> <span class="o">=</span> <span class="mi">42</span>
+</code></pre></div>
+<div style="text-align:center"><img src="../images/toto.png"></div>
+
+<div class="admonition note">
+<p class="admonition-title">La notion d'affectation</p>
+<p>L'instruction qui permet d'associer une valeur à une variable (nouvelle ou déjà créée) s'appelle une <strong>affectation</strong>. En python, on utilise le symbole <code>=</code>. A ne pas confondre avec l'égalité mathématiques ! Certains langages utilisent le symbole <code>←</code> comme symbole d'affection.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">La notion d'initialisation</p>
+<p>La première fois qu'on affecte une valeur à une variable, on dit qu'on l'<strong>initialise</strong>. On parle aussi de <strong>déclaration</strong>.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Par abus de langage, on confond souvent variable et nom de variable. Ici on parlera de la variable <code>toto</code>.</p>
+</div>
+<h2 id="ce-quil-se-passe-en-memoire">Ce qu'il se passe en mémoire</h2>
+<p>Regardons ce qu'il se passe physiquement lorsqu'on initialise une variable. Une machine peut être vue comme la réunion de deux composants :</p>
+<ul>
+<li>
+<p>Un centre de calcul, le <strong>processeur</strong>, chargé de manipuler des données (copie, addition, tests etc.).</p>
+</li>
+<li>
+<p>Une <strong>mémoire</strong> permettant de stocker des données.</p>
+</li>
+</ul>
+<p>Toutes les données qu'on manipule dans un programme sont stockées dans la mémoire vive (RAM) de l'ordinateur. C'est un très grand tableau découpé en octet :</p>
+<div style="text-align:center"><img src="../images/1ram.png"></div>
+
+<p>Chaque case (octet) de ce tableau se réfère par un indice, que l'on appelle <strong>adresse</strong>. Lorsque j'initialise <code>toto</code> à 42, un entier codé sur 32 bits imaginons, plusieurs étapes se succèdent :</p>
+<ul>
+<li><strong>Étape 1 :</strong> La machine commence par trouver un emplacement disponible de la taille souhaitée. Ici, elle nous renvoie 312.</li>
+</ul>
+<div style="text-align:center"><img src="../images/2ram.png"></div>
+
+<ul>
+<li>
+<p><strong>Étape 2 :</strong> On associe cet emplacement à l'identifiant <code>toto</code>. </p>
+</li>
+<li>
+<p><strong>Étape 3 :</strong> Finalement, on copie l'entier 42 à cet emplacement.</p>
+</li>
+</ul>
+<div style="text-align:center"><img src="../images/3ram.png"></div>
+
+<p>L'identifiant <code>toto</code> n'est qu'une simple adresse dans la mémoire !</p>
+<h2 id="expressions-et-evaluations">Expressions et évaluations</h2>
+<p>Python permet d'effectuer tout type de calcul, comme une calculatrice ordinaire. Les règles de priorité des calculs sont les mêmes qu'en mathématiques. On utilise des parenthèses lorsqu'on a besoin de changer l'ordre de priorité.</p>
+<table>
+<thead>
+<tr>
+<th>Opération</th>
+<th>Symbole</th>
+<th>Exemple</th>
+<th>Résultat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Addition</td>
+<td><code>+</code></td>
+<td><code class="highlight"><span class="mi">10</span> <span class="o">+</span> <span class="mi">20</span></code></td>
+<td><code class="highlight"><span class="mi">30</span></code></td>
+</tr>
+<tr>
+<td>Soustraction</td>
+<td><code>-</code></td>
+<td><code class="highlight"><span class="mi">2</span> <span class="o">-</span> <span class="mi">7</span></code></td>
+<td><code class="highlight"><span class="o">-</span><span class="mi">5</span></code></td>
+</tr>
+<tr>
+<td>Multiplication</td>
+<td><code>*</code></td>
+<td><code class="highlight"><span class="mi">5</span> <span class="o">*</span> <span class="mi">9</span></code></td>
+<td><code class="highlight"><span class="mi">45</span></code></td>
+</tr>
+<tr>
+<td>Puissance</td>
+<td><code>**</code></td>
+<td><code class="highlight"><span class="mi">2</span> <span class="o">**</span> <span class="mi">3</span></code></td>
+<td><code class="highlight"><span class="mi">8</span></code></td>
+</tr>
+<tr>
+<td>Division</td>
+<td><code>/</code></td>
+<td><code class="highlight"><span class="mi">5</span> <span class="o">/</span> <span class="mi">2</span></code></td>
+<td><code class="highlight"><span class="mf">2.5</span></code></td>
+</tr>
+<tr>
+<td>Division entière</td>
+<td><code>//</code></td>
+<td><code class="highlight"><span class="mi">5</span> <span class="o">//</span> <span class="mi">2</span></code></td>
+<td><code class="highlight"><span class="mi">2</span></code></td>
+</tr>
+<tr>
+<td>Reste (modulo)</td>
+<td><code>%</code></td>
+<td><code class="highlight"><span class="mi">5</span> <span class="o">%</span> <span class="mi">2</span></code></td>
+<td><code class="highlight"><span class="mi">1</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Analysons cette courte séquence d'instructions :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>
+<span class="mi">4</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span>
+<span class="mi">7</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">c</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">"&lt;pyshell&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">'c'</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+<span class="o">&gt;&gt;&gt;</span> 
+</code></pre></div></td></tr></table></div>
+<div class="admonition info">
+<p class="admonition-title">Analyse ligne par ligne</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><input id="__tabbed_1_4" name="__tabbed_1" type="radio"><input id="__tabbed_1_5" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Ligne 1</label><label for="__tabbed_1_2">Ligne 2</label><label for="__tabbed_1_3">Ligne 3 et 4</label><label for="__tabbed_1_4">Ligne 5</label><label for="__tabbed_1_5">Ligne 8</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>On initialise une variable <code>a</code> à 2.</p>
+</div>
+<div class="tabbed-block">
+<p>On réaffecte une nouvelle valeur, 4, à la variable <code>a</code>.</p>
+</div>
+<div class="tabbed-block">
+<p>On demande la valeur associée à <code>a</code>. L'ancienne valeur 2 a bien été écrasée.</p>
+</div>
+<div class="tabbed-block">
+<p>On initialise une nouvelle valeur <code>b</code> avec l'<strong>expression</strong> <code>a + 3</code>. La machine doit au préalable l'évaluer avant de l'affecter. Dans l'ordre :</p>
+<ul>
+<li>
+<p>Python lit le membre de droite  <code>a + 3</code>.</p>
+</li>
+<li>
+<p>Il récupère la valeur stockée dans <code>a</code>, c'est-à-dire 4.</p>
+</li>
+<li>
+<p>Il <strong>évalue</strong> l'expression <code>4 + 3</code>.</p>
+</li>
+<li>
+<p>Il affecte à <code>b</code> la somme obtenue, c'est-à-dire 7.</p>
+</li>
+</ul>
+<p>On retient que l'affection se déroule toujours en dernier (généralement).</p>
+</div>
+<div class="tabbed-block">
+<p>On tente de réaffecter à <code>b</code> le résultat de l'expression <code>c + 1</code>. Or aucune variable nommée <code>c</code> n'a été déclarée auparavant, on obtient donc une erreur.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Syntaxe abrégée</p>
+<p>On a souvent besoin d'<strong>incrémenter</strong> une variable (augmenter sa valeur de 1) ou de la décrémenter (diminuer sa valeur de 1). Au lieu d'écrire <code class="highlight"><span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span></code>, on peut écrire de façon plus courte : <code class="highlight"><span class="n">a</span> <span class="o">+=</span> <span class="mi">1</span></code>.</p>
+<p>Cette syntaxe raccourcie fonctionne pour n'importe quelle valeur de l'incrément, ainsi que pour les opérateurs <code class="highlight"><span class="o">+</span> <span class="p">,</span> <span class="o">-</span> <span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="o">**</span><span class="p">,</span> <span class="o">/</span> <span class="p">,</span> <span class="o">//</span><span class="p">,</span> <span class="o">%</span></code> :</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">-=</span> <span class="mi">15</span>
+<span class="mi">5</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">/=</span> <span class="mi">2</span>
+<span class="mf">2.5</span>
+</code></pre></div>
+</div>
+<h2 id="types-de-variables">Types de variables</h2>
+<p>Pour l'instant, nos variables ne contenaient que des nombres entiers. Pour différencier la nature de ce que peut contenir une variable, on parle alors de <strong>type de variable</strong>. Voici les types que nous allons manipuler tout au long de l'année :</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Syntaxe</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>int</code></td>
+<td style="text-align: left;">Entier</td>
+<td style="text-align: left;"><code class="highlight"><span class="mi">42</span></code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>float</code></td>
+<td style="text-align: left;">Flottant (à virgule)</td>
+<td style="text-align: left;"><code class="highlight"><span class="mf">2.71828</span></code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>str</code></td>
+<td style="text-align: left;">Chaîne de caractères (ou string)</td>
+<td style="text-align: left;"><code class="highlight"><span class="s1">'Hello, World'</span></code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>bool</code></td>
+<td style="text-align: left;">Booléen (<code class="highlight"><span class="kc">True</span></code> ou <code class="highlight"><span class="kc">False</span></code>)</td>
+<td style="text-align: left;"><code class="highlight"><span class="kc">True</span></code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>tuple</code></td>
+<td style="text-align: left;">p-uplet</td>
+<td style="text-align: left;"><code class="highlight"><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">127</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>list</code></td>
+<td style="text-align: left;">Tableau</td>
+<td style="text-align: left;"><code class="highlight"><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span></code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>dict</code></td>
+<td style="text-align: left;">Dictionnaire</td>
+<td style="text-align: left;"><code class="highlight"><span class="p">{</span><span class="s1">'prenom'</span><span class="p">:</span> <span class="s1">'Thomas'</span><span class="p">,</span> <span class="s1">'age'</span><span class="p">:</span> <span class="mi">44</span><span class="p">,</span> <span class="s1">'taille'</span><span class="p">:</span> <span class="mi">184</span><span class="p">}</span></code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>function</code></td>
+<td style="text-align: left;">Fonction</td>
+<td style="text-align: left;"><code class="highlight"><span class="nb">print</span></code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Déterminer le type d'une variable</p>
+<p>Il suffit d'utiliser la fonction <code>type</code> :
+</p><div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s1">'Au secours!'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="k">class</span> <span class="err">'</span><span class="nc">str</span><span class="s1">'&gt;</span>
+</code></pre></div>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Typage dynamique/statique</p>
+<p>En Python, on omet de préciser le type de variable utilisé. Dans le langage C par exemple, il est nécessaire de préciser le type par un mot-clef :</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span>
+</code></pre></div>
+<p>Ce typage est dit <strong>statique</strong> car la variable <code>a</code> ne pourra pas changer de type au cours du programme, elle n'aura le droit que de contenir un nombre entier. Python offre une plus grande souplesse :</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="k">class</span> <span class="err">'</span><span class="nc">int</span><span class="s1">'&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s1">'test'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="k">class</span> <span class="err">'</span><span class="nc">str</span><span class="s1">'&gt;</span>
+</code></pre></div>
+<p>Python a changé tout seul le type de notre variable, sans intervention ! On parle alors de <strong>typage dynamique</strong>.</p>
+<div class="admonition bug">
+<p class="admonition-title">Mauvaise pratique</p>
+<p>Changer le type d'une variable au cours d'un programme est une grande source d'erreur. Pour que votre code reste clair et facilement compréhensible, n'utilisez pas le typage dynamique.</p>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Conversion entre les différents types</p>
+<p>On peut parfois souhaiter passer d'un type à un autre, si cela fait sens évidemment.</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">float</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="mf">3.0</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">int</span><span class="p">(</span><span class="mf">2.47</span><span class="p">)</span>
+<span class="mi">2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">str</span><span class="p">(</span><span class="mi">47</span><span class="p">)</span>
+<span class="s1">'47'</span>
+</code></pre></div>
+</div>
+<h2 id="regles-de-nommage">Règles de nommage</h2>
+<p>Python et la plupart des langages de programmation suivent les mêmes règles de nommage des variables :</p>
+<ul>
+<li>
+<p>Seuls les <strong>lettres non-accentuées</strong> (<img alt="⚠" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/26a0.svg" title=":warning:"> miniscule et majuscule sont des caractères différents, ainsi les variables <code>a</code> et <code>A</code> sont bien deux variables distincts), les <strong>chiffres</strong> et le <strong>tiret du bas</strong> <code>_</code> sont autorisées. Les espaces ne sont donc pas autorisés.</p>
+</li>
+<li>
+<p>Le nom de la variable ne doit pas commencer par un chiffre.</p>
+</li>
+<li>
+<p>Le nom de la variable ne doit pas être un <strong>mot-clef</strong> (keyword en anglais) du langage comme <code class="highlight"><span class="k">while</span></code>, <code class="highlight"><span class="k">if</span></code>, <code class="highlight"><span class="k">def</span></code> etc.</p>
+</li>
+</ul>
+<div class="admonition success">
+<p class="admonition-title">Les bonnes pratiques</p>
+<ul>
+<li>
+<p>Le nom de la variable doit être <strong>explicite</strong> et donner du sens à votre code. Par exemple si on doit manipuler une variable qui stocke un âge, il faut l'écrire non pas <code>a</code> mais <code>age</code>. Pour les indices de tableau et les incréments dans les boucles on utilise souvent les noms <code>i</code>, <code>j</code>, <code>k</code>.</p>
+</li>
+<li>
+<p>Le nom des variables (et fonctions) commencent par une <strong>minuscule</strong>. Les noms qui commencent par une majuscule seront réservés pour les types construits / classes.</p>
+</li>
+<li>
+<p>Si le nom est composé, il existe deux manières :</p>
+<ul>
+<li>
+<p><code>snake_case</code> : les mots sont séparés par des underscores.</p>
+</li>
+<li>
+<p><code>camelCase</code> : les mots sont séparés par des majuscules mais la 1ère lettre est minuscule.</p>
+</li>
+</ul>
+<p>C'est une question de préférence, la chose à retenir est de ne pas mélanger les deux, il faut rester <strong>consistent</strong>. </p>
+</li>
+</ul>
+</div>
+<h2 id="afficher-une-variable">Afficher une variable</h2>
+<h3 id="methode-directe">Méthode directe</h3>
+<p>La fonction <code class="highlight"><span class="nb">print</span></code> permet d'afficher dans la console ce qu'on lui donne en argument. Cela peut être simplement du texte :</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">"Hello, World."</span><span class="p">)</span>
+<span class="n">Hello</span><span class="p">,</span> <span class="n">World</span><span class="o">.</span>
+</code></pre></div>
+<p>Ou même un nombre :</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="mf">3.1415</span><span class="p">)</span>
+<span class="mf">3.1415</span>
+</code></pre></div>
+<p>On peut alors afficher nos variables :</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s2">"une chaîne de caractère"</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">une</span> <span class="n">chaîne</span> <span class="n">de</span> <span class="n">caractère</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">toto</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">toto</span><span class="p">)</span>
+<span class="mi">42</span>
+</code></pre></div>
+<p>Ce qui est très utile lorsqu'on conçoit des scripts ! L'interêt est assez limité dans le shell (la console <code class="highlight"><span class="o">&gt;&gt;&gt;</span></code>) effectivement.</p>
+<div class="admonition info">
+<p class="admonition-title">Formatage avancé</p>
+<p>Parfois, on souhaite mélanger du texte prédéfini et des variables. Il existe 3 méthodes :</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Utiliser la variadicité de <code class="highlight"><span class="nb">print</span></code></label><label for="__tabbed_2_2">Concaténer les chaînes de caractères</label><label for="__tabbed_2_3">fstring</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Une fonction est dite variadique si elle accepte un nombre variable de paramètres. C'est le cas pour la fonction <code class="highlight"><span class="nb">print</span></code> :</p>
+<p></p><div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">18</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">"Vous avez"</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="s2">"ans."</span><span class="p">)</span>
+<span class="n">Vous</span> <span class="n">avez</span> <span class="mi">18</span> <span class="n">ans</span><span class="o">.</span>
+</code></pre></div>
+Le problème, c'est que finalement on n'a pas réussi à créer directement la chaîne de caractères <code class="highlight"><span class="s1">'Vous avez 18 ans'</span></code>.
+</div>
+<div class="tabbed-block">
+<p>Quand on utilise l'addition <code>+</code> entre deux chaînes de caractères, l'expression s'évalue comme la <strong>concaténation</strong> de celles-ci.</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">18</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">texte</span> <span class="o">=</span> <span class="s2">"Vous avez "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">age</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" ans."</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">texte</span><span class="p">)</span>
+<span class="n">Vous</span> <span class="n">avez</span> <span class="mi">18</span> <span class="n">ans</span><span class="o">.</span>
+</code></pre></div>
+<p>Attention, il faut bien convertir l'entier <code>age</code> en chaîne de caractères !</p>
+</div>
+<div class="tabbed-block">
+<p>C'est désormais la méthode standard (à partir de la version 3.5 de Python) pour insérer des variables dans une chaîne de caractères :</p>
+<p></p><div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">18</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">texte</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"Vous avez </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2"> ans."</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">texte</span><span class="p">)</span>
+<span class="n">Vous</span> <span class="n">avez</span> <span class="mi">18</span> <span class="n">ans</span><span class="o">.</span>
+</code></pre></div>
+La syntaxe est bien plus claire et courte ! Surtout si on utilise directement <code class="highlight"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Vous avez </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2"> ans."</span><span class="p">)</span></code>.
+</div>
+</div>
+</div>
+</div>
+<h2 id="demander-une-entree-a-lutilisateur">Demander une entrée à l'utilisateur</h2>
+<p>Parfois, on voudrait demander à l'utilisateur de nous fournir un nombre ou une saisie clavier. On utilise alors la fonction <code>input</code> :</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">input</span><span class="p">()</span>
+<span class="n">je</span> <span class="n">tape</span> <span class="n">sur</span> <span class="n">mon</span> <span class="n">clavier</span>
+<span class="s1">'je tape sur mon clavier'</span>
+</code></pre></div>
+<p>Elle renvoie toujours une chaîne de caractère, c'est pourquoi il ne faut pas oublier de convertir l'entrée dans le format souhaité :</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="mi">18</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">age</span>
+<span class="mi">18</span>
+</code></pre></div>
+<p>On peut aussi passer en entrée une chaîne de caractère :</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">'Donne moi ton âge : '</span><span class="p">))</span>
+<span class="n">Donne</span> <span class="n">moi</span> <span class="n">ton</span> <span class="n">âge</span> <span class="p">:</span> <span class="mi">18</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">age</span>
+<span class="mi">18</span>
+</code></pre></div></div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

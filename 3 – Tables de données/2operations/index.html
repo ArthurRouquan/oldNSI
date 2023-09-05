@@ -1,0 +1,1850 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../1intro/">
+      
+      
+        <link rel="next" href="../3fusion/">
+      
+      
+      <link rel="icon" href="../../assets/laptop-code.svg">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.8">
+    
+    
+      
+        <title>Opérations sur les tables - 1ère NSI</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.046329b4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.85d0ee34.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_markdown_exec_ansi.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#operations-sur-les-tables" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../.." title="1ère NSI" class="md-header__button md-logo" aria-label="1ère NSI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            1ère NSI
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Opérations sur les tables
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="1ère NSI" class="md-nav__button md-logo" aria-label="1ère NSI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
+
+    </a>
+    1ère NSI
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Accueil
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    1 – Types de base
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            1 – Types de base
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1%20%E2%80%93%20Types%20de%20base/1entier/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Représentation des entiers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1%20%E2%80%93%20Types%20de%20base/2relatif/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Représentation des entiers relatifs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1%20%E2%80%93%20Types%20de%20base/3flottant/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Représentation approximative des nombres réels
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1%20%E2%80%93%20Types%20de%20base/5bool/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Les valeurs booléennes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1%20%E2%80%93%20Types%20de%20base/6char/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Représentation des caractères
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1%20%E2%80%93%20Types%20de%20base/7recap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Récapitulatif
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2 – Types construits
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            2 – Types construits
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2%20%E2%80%93%20Types%20construits/4tupledict/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tuples et Dictionnaires
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tableau
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Tableau
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2%20%E2%80%93%20Types%20construits/Tableau/1tableau/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction aux tableaux
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2%20%E2%80%93%20Types%20construits/Tableau/2matrice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tableaux à plusieurs dimensions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2%20%E2%80%93%20Types%20construits/Tableau/3avancee/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Compléments sur les listes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    3 – Tables de données
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            3 – Tables de données
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tables de données
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Opérations sur les tables
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Opérations sur les tables
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#recherche-de-valeurs" class="md-nav__link">
+    Recherche de valeurs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agregation" class="md-nav__link">
+    Agrégation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#selection" class="md-nav__link">
+    Sélection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#projection" class="md-nav__link">
+    Projection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tri" class="md-nav__link">
+    Tri
+  </a>
+  
+    <nav class="md-nav" aria-label="Tri">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#difference-entre-sort-et-sorted" class="md-nav__link">
+    Différence entre sort et sorted
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ordre-de-tri" class="md-nav__link">
+    Ordre de tri
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cle-de-tri" class="md-nav__link">
+    Clé de tri
+  </a>
+  
+    <nav class="md-nav" aria-label="Clé de tri">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tri-des-types-classiques" class="md-nav__link">
+    Tri des types classiques
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tri-personnalise" class="md-nav__link">
+    Tri personnalisé
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercices" class="md-nav__link">
+    Exercices
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3fusion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fusion de tables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4tp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP Pokédex
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    4 – IHM Web
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            4 – IHM Web
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4%20%E2%80%93%20IHM%20Web/1intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Interactions entre l'Homme et la Machine sur le Web
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4%20%E2%80%93%20IHM%20Web/2static/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Page statique : HTML & CSS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4%20%E2%80%93%20IHM%20Web/3js/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Page dynamique : JavaScript
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    5 – Architecture
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            5 – Architecture
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5%20%E2%80%93%20Architecture/1intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Le modèle d'architecture séquentielle (Von Neumann)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5%20%E2%80%93%20Architecture/2complements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Compléments
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5%20%E2%80%93%20Architecture/3sim/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP Simulation d'une machine & Assembleur
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5%20%E2%80%93%20Architecture/4os/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.62 8.35c-.42.28-1.75 1.04-1.95 1.19-.39.31-.75.29-1.14-.01-.2-.16-1.53-.92-1.95-1.19-.48-.31-.45-.7.08-.92 1.64-.69 3.28-.64 4.91.03.49.21.51.6.05.9m7.22 7.28c-.93-2.09-2.2-3.99-3.84-5.66a4.31 4.31 0 0 1-1.06-1.88c-.1-.33-.17-.67-.24-1.01-.2-.88-.29-1.78-.7-2.61-.73-1.58-2-2.4-3.84-2.47-1.81.05-3.16.81-3.95 2.4-.21.43-.36.88-.46 1.34-.17.76-.32 1.55-.5 2.32-.15.65-.45 1.21-.96 1.71-1.61 1.57-2.9 3.37-3.88 5.35-.14.29-.28.58-.37.88-.19.66.29 1.12.99.96.44-.09.88-.18 1.3-.31.41-.15.57-.05.67.35.65 2.15 2.07 3.66 4.24 4.5 4.12 1.56 8.93-.66 9.97-4.58.07-.27.17-.37.47-.27.46.14.93.24 1.4.35.49.09.85-.16.92-.64.03-.26-.06-.49-.16-.73"/></svg>
+  
+  <span class="md-ellipsis">
+    Les systèmes d'exploitation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5%20%E2%80%93%20Architecture/5shell/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP Shell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5%20%E2%80%93%20Architecture/6filius/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TP Filius
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    6 – Programmation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            6 – Programmation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6%20%E2%80%93%20Programmation/1intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6%20%E2%80%93%20Programmation/2variables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Les variables et les types
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6%20%E2%80%93%20Programmation/3if/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    L'instruction conditionnelle if
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6%20%E2%80%93%20Programmation/4while/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    La boucle while
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6%20%E2%80%93%20Programmation/5for/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    La boucle for
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6%20%E2%80%93%20Programmation/6fonctions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Les fonctions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    8 – Défi
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            8 – Défi
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../8%20%E2%80%93%20D%C3%A9fi/1index/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Défis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#recherche-de-valeurs" class="md-nav__link">
+    Recherche de valeurs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agregation" class="md-nav__link">
+    Agrégation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#selection" class="md-nav__link">
+    Sélection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#projection" class="md-nav__link">
+    Projection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tri" class="md-nav__link">
+    Tri
+  </a>
+  
+    <nav class="md-nav" aria-label="Tri">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#difference-entre-sort-et-sorted" class="md-nav__link">
+    Différence entre sort et sorted
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ordre-de-tri" class="md-nav__link">
+    Ordre de tri
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cle-de-tri" class="md-nav__link">
+    Clé de tri
+  </a>
+  
+    <nav class="md-nav" aria-label="Clé de tri">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tri-des-types-classiques" class="md-nav__link">
+    Tri des types classiques
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tri-personnalise" class="md-nav__link">
+    Tri personnalisé
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercices" class="md-nav__link">
+    Exercices
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<div><h1 id="operations-sur-les-tables">Opérations sur les tables</h1>
+<p>Pour tous ces exercices, on s'appuiera sur <a href="../harrypotter.csv">cette table</a>. Pour rappel le code à adapter pour importer un fichier csv :</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'harrypotter.csv'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span>
+<span class="n">table_hp</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">','</span><span class="p">))</span>
+</code></pre></div>
+<p>Ici, on s'intéresse aux <strong>opérations classiques</strong> sur les tables.</p>
+<h2 id="recherche-de-valeurs">Recherche de valeurs</h2>
+<div class="admonition example">
+<p class="admonition-title">Appartient à</p>
+<p>On souhaite d'abord vérifier qu'une valeur appartient à une table ou non. Pour cela il suffit de parcourir les enregistrements de la table et vérifier que la valeur recherchée est une valeur de l'enregistrement.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">appartient</span><span class="p">(</span><span class="n">valeur</span><span class="p">,</span> <span class="n">table</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">'''</span>
+<span class="sd">    Renvoie True si et seulement **si** la valeur apparaît dans les valeurs de la table.</span>
+<span class="sd">    '''</span>
+    <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">table</span><span class="p">:</span> <span class="c1"># e pour enregistrement</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">e</span><span class="o">.</span> <span class="o">...</span> <span class="p">()</span> <span class="p">:</span> <span class="c1"># v pour ...</span>
+            <span class="k">if</span> <span class="n">v</span> <span class="o">==</span> <span class="o">...</span>
+                <span class="k">return</span> <span class="o">...</span>
+    <span class="k">return</span> <span class="o">...</span>
+</code></pre></div>
+<ol>
+<li>
+<p>Compléter ce code.</p>
+</li>
+<li>
+<p>Simplifier ce code en utilisant l'opérateur d'appartenance <code class="highlight"><span class="ow">in</span></code>.</p>
+</li>
+<li>
+<p>Que renvoie <code class="highlight"><span class="n">appartient</span><span class="p">(</span><span class="s1">'Harry Potter'</span><span class="p">,</span> <span class="n">table_hp</span><span class="p">)</span></code> ?</p>
+</li>
+</ol>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Appartient à (suivant un champ)</p>
+<p>Adapter la fonction précédente pour qu'elle prenne en paramètre un champ et qu'elle recherche si la valeur est présente pour le champ précisé. La signature de la fonction :</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">appartient</span><span class="p">(</span><span class="n">valeur</span><span class="p">,</span> <span class="n">champ</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">table</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Recherche</p>
+<p>On souhaite désormais récupérer certaines données si la valeur recherchée est trouvée.</p>
+<p>Adapter la fonction précédente pour qu'elle renvoie la liste des valeurs correspondant à un second champ (de retour) lorsque la valeur cherchée est trouvée (dans un premier champ de recherche). La signature de la fonction :</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">recherche</span><span class="p">(</span><span class="n">valeur</span><span class="p">,</span> <span class="n">champ1</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">champ2</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">table</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+</code></pre></div>
+<p>Un exemple :</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">recherche</span><span class="p">(</span><span class="s1">'Hufflepuff'</span><span class="p">,</span> <span class="s1">'House'</span><span class="p">,</span> <span class="s1">'Character Name'</span><span class="p">,</span> <span class="n">table_hp</span><span class="p">)</span>
+<span class="p">[</span><span class="s1">'Cedric Diggory'</span><span class="p">,</span> <span class="s1">'Nymphadora Tonks'</span><span class="p">,</span> <span class="s1">'Susan Bones'</span><span class="p">,</span> <span class="s1">'Pomona Sprout'</span><span class="p">,</span> <span class="s1">'Leanne'</span><span class="p">,</span> <span class="s1">'Justin Finch-Fletchley'</span><span class="p">,</span> <span class="s1">'Zacharias Smith'</span><span class="p">,</span> <span class="s1">'Ernest Macmillan'</span><span class="p">]</span>
+</code></pre></div>
+</div>
+<h2 id="agregation">Agrégation</h2>
+<p>L'<strong>agrégation</strong> est une fonction qui transforme une liste d'éléments en une unique valeur. Vous connaissez déjà moults fonctions d'aggrégation : <strong>somme</strong> d'une liste, <strong>moyenne</strong> d'une liste, <strong>maximum</strong>/<strong>minimum</strong> d'une liste, <strong>nombre d'éléments</strong> d'une liste etc.</p>
+<div class="admonition example">
+<p class="admonition-title">Aggrégation avec condition</p>
+<p>Il est bien utile d'armer une telle fonction avec une <strong>condition</strong>. Par exemple, écrivez la fonction <code>compte</code> qui prend en paramètre une valeur, un champ et une table et renvoie le nombre d'occurences de la valeur dans le champ de la table.</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">compte</span><span class="p">(</span><span class="s1">'Female'</span><span class="p">,</span> <span class="s1">'Gender'</span><span class="p">,</span> <span class="n">table_hp</span><span class="p">)</span>
+<span class="mi">42</span>
+</code></pre></div>
+</div>
+<h2 id="selection">Sélection</h2>
+<p>Une <strong>sélection</strong> revient à créer une nouvelle table en extrayant les enregistrements d'une table existante vérifiant une certaine condition. </p>
+<p>Par exemple, on pourrait sélectionner les personnages de Serdaigle (Ravenclaw) :</p>
+<table>
+<thead>
+<tr>
+<th>Character ID</th>
+<th>Character Name</th>
+<th>Species</th>
+<th>Gender</th>
+<th>House</th>
+<th>Patronus</th>
+<th>Wand (Wood)</th>
+<th>Wand (Core)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>25</td>
+<td>Luna Lovegood</td>
+<td>Human</td>
+<td>Female</td>
+<td>Ravenclaw</td>
+<td>Hare</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>28</td>
+<td>Gilderoy Lockhart</td>
+<td>Human</td>
+<td>Male</td>
+<td>Ravenclaw</td>
+<td></td>
+<td>Cherry</td>
+<td>Dragon Heartstring</td>
+</tr>
+<tr>
+<td>38</td>
+<td>Sybill Trelawney</td>
+<td>Human</td>
+<td>Female</td>
+<td>Ravenclaw</td>
+<td></td>
+<td>Hazel</td>
+<td>Unicorn Hair</td>
+</tr>
+<tr>
+<td>39</td>
+<td>Moaning Myrtle</td>
+<td>Ghost</td>
+<td>Female</td>
+<td>Ravenclaw</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>41</td>
+<td>Quirinus Quirrell</td>
+<td>Human</td>
+<td>Male</td>
+<td>Ravenclaw</td>
+<td></td>
+<td>Alder</td>
+<td>Unicorn Hair</td>
+</tr>
+<tr>
+<td>43</td>
+<td>Garrick Ollivander</td>
+<td>Human</td>
+<td>Male</td>
+<td>Ravenclaw</td>
+<td></td>
+<td>Hornbeam</td>
+<td>Dragon Heartstring</td>
+</tr>
+<tr>
+<td>54</td>
+<td>Helena Ravenclaw</td>
+<td>Ghost</td>
+<td>Female</td>
+<td>Ravenclaw</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>55</td>
+<td>Cho Chang</td>
+<td>Human</td>
+<td>Female</td>
+<td>Ravenclaw</td>
+<td>Swan</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>59</td>
+<td>Filius Flitwick</td>
+<td>Human (Part-Goblin)</td>
+<td>Male</td>
+<td>Ravenclaw</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>101</td>
+<td>Padma Patil</td>
+<td>Human</td>
+<td>Female</td>
+<td>Ravenclaw</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>119</td>
+<td>Michael Corner</td>
+<td>Human</td>
+<td>Male</td>
+<td>Ravenclaw</td>
+<td>Squirrel</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>124</td>
+<td>Marcus Belby</td>
+<td>Human</td>
+<td>Male</td>
+<td>Ravenclaw</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Cela consiste donc à créer une liste en parcourant la table existante et en sélectionnant les enregistrements selon un critère : c'est exactement ainsi qu'on crée une <strong>liste en compréhension avec filtre</strong>.</p>
+<p>La table précédente a été obtenu grâce à la ligne de code :</p>
+<div class="highlight"><pre><span></span><code><span class="n">table_serdaigle</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">table_hp</span> <span class="k">if</span> <span class="n">e</span><span class="p">[</span><span class="s1">'House'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'Ravenclaw'</span><span class="p">]</span>
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Exercices sur la sélection</p>
+<ol>
+<li>Créer la table des personnages d'espèce "Ghost"</li>
+<li>Créer la table des personnages féminins et de Gryffondor.</li>
+<li>Créer la table des personnages masculins dont le nombre de lettres de leur nom est pair.</li>
+</ol>
+</div>
+<h2 id="projection">Projection</h2>
+<p>On peut également avoir à extraire d'une table certaines colonnes, c'est-à-dire seulement des données d'un ou plusieurs champs. On appelle également cette opération <strong>projection</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Origine du mot projection</p>
+<p>En mathématique, on parle de projection quand on passe d'une dimension à une dimension inférieure. Typiquement, on peut projetter un point dans l'espace (3D) sur un plan (2D). Dans le cas des tables, une colonne peut être vu comme une dimension. En effet, il n'est pas rare de traiter un enregistrement comme un simple vecteur. </p>
+</div>
+<p>Il s'agit donc de créer une nouvelle table (liste) dont les enregistrements sont des dictionnaires qui ne contiennent que les couples champ: valeur des enregistrements de la table initiale pour les champs précisés (sous forme d'une liste par exemple).</p>
+<div class="admonition example">
+<p class="admonition-title">La projection en code</p>
+<ol>
+<li>
+<p>Compléter la fonction de projection:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">projection</span><span class="p">(</span><span class="n">table</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">liste_champs</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">'''</span>
+<span class="sd">    Renvoie une table (liste de dictinonaires) des enregistrements de table ne contenant uniquement</span>
+<span class="sd">    les champs appartenant à liste_champs.</span>
+<span class="sd">    '''</span>
+    <span class="n">table_proj</span> <span class="o">=</span> <span class="o">...</span>
+    <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="o">...</span><span class="p">:</span>
+        <span class="n">table_proj</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="n">c</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">c</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="o">...</span> <span class="k">if</span> <span class="o">...</span> <span class="p">})</span>
+    <span class="k">return</span> <span class="o">...</span>
+</code></pre></div>
+</li>
+<li>
+<p>Utiliser cette fonction pour créer une table en extrayant les colonnes "Character Name" et "House" de la table d'exemple.</p>
+</li>
+</ol>
+</div>
+<h2 id="tri">Tri</h2>
+<p>Il est parfois utile d'ordonner les enregistrements en les triant suivant les valeurs d'une ou plusieurs colonnes.</p>
+<p>Par chance, Python est fourni avec deux fonctions de base pour trier une liste, la méthode <code>sort</code> et la fonction <code>sorted</code>. </p>
+<h3 id="difference-entre-sort-et-sorted">Différence entre <code>sort</code> et <code>sorted</code></h3>
+<ul>
+<li>La méthode <code>sort</code> tri <strong>en place</strong> la liste à laquelle on la lui applique. C'est-à-dire qu'elle <strong>modifie directement</strong> la liste. Elle ne renvoie rien.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">tab</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">tab</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">tab</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+</code></pre></div>
+<ul>
+<li>La fonction <code class="highlight"><span class="nb">sorted</span></code> quant à elle renvoie une <strong>nouvelle liste</strong>, elle ne modifie pas la liste donnée en argument.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">tab</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">tab</span><span class="p">)</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">tab</span>
+<span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</code></pre></div>
+<h3 id="ordre-de-tri">Ordre de tri</h3>
+<p>Pour ordonner de manière décroissante, on se sert du paramètre booléen <code>reverse</code>. </p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">sorted</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+</code></pre></div>
+<h3 id="cle-de-tri">Clé de tri</h3>
+<h4 id="tri-des-types-classiques">Tri des types classiques</h4>
+<ul>
+<li>Les <strong>nombres</strong> (<code class="highlight"><span class="nb">int</span></code>, <code class="highlight"><span class="nb">float</span></code>) sont triées classiquement :</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">sorted</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+</code></pre></div>
+<ul>
+<li>Les <strong>chaînes de caractères</strong> (<code class="highlight"><span class="nb">str</span></code>) sont triées par ordre alphabétique :</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">sorted</span><span class="p">([</span><span class="s1">'bateau'</span><span class="p">,</span> <span class="s1">'cuisine'</span><span class="p">,</span> <span class="s1">'arbre'</span><span class="p">,</span> <span class="s1">'dinde'</span><span class="p">])</span>
+<span class="p">[</span><span class="s1">'arbre'</span><span class="p">,</span> <span class="s1">'bateau'</span><span class="p">,</span> <span class="s1">'cuisine'</span><span class="p">,</span> <span class="s1">'dinde'</span><span class="p">]</span>
+</code></pre></div>
+<ul>
+<li>Les <strong>tableaux</strong> (<code class="highlight"><span class="nb">list</span></code>) ou les <strong>p-uplets</strong> (<code class="highlight"><span class="nb">tuple</span></code>) sont triés par ordre <strong>lexicographique</strong> : on trie suivant le premier élément, puis le deuxième etc.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">sorted</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">)])</span>
+<span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">)]</span>
+</code></pre></div>
+<h4 id="tri-personnalise">Tri personnalisé</h4>
+<p><code class="highlight"><span class="n">sort</span></code> et <code class="highlight"><span class="nb">sorted</span></code> ont un paramètre nommé <code>key</code> qui permet de spécifier une <strong>fonction qui est appelée sur chaque élément de la liste avant d’effectuer des comparaisons</strong>. Ainsi, cette fonction renvoie la plupart du temps un nombre, car les entiers et flottants sont facilement comparables. Cette fonction est parfois appelée <em>projecteur</em>, car elle projette les élements de la liste vers une valeur comparable (typiquement <code class="highlight"><span class="nb">int</span></code>). Sa signature usuel :</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">projecteur</span><span class="p">(</span><span class="n">element_de_la_liste</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</code></pre></div>
+<div class="admonition check">
+<p class="admonition-title">Un premier exemple</p>
+<p>Par exemple, on peut trier une liste de couples de nombre suivant le second nombre grâce à un projecteur  :</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">second_proj</span><span class="p">(</span><span class="n">t</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">tab</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">tab</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">second_proj</span><span class="p">)</span>
+<span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)]</span>
+</code></pre></div>
+</div>
+<div class="admonition check">
+<p class="admonition-title">Un second exemple</p>
+<p>Pour trier une liste de dictionnaires (<em>une table</em>), il faut nécessairement
+spécifier un projecteur pour obtenir des éléments comparables.
+En effet, deux dictionnaires sont par défaut incomparables.</p>
+<div class="highlight"><pre><span></span><code><span class="n">releve</span> <span class="o">=</span><span class="p">[{</span><span class="s1">'Nom'</span><span class="p">:</span> <span class="s1">'Alice'</span><span class="p">,</span> <span class="s1">'Anglais'</span><span class="p">:</span> <span class="mi">17</span><span class="p">,</span> <span class="s1">'Info'</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span> <span class="s1">'Maths'</span><span class="p">:</span> <span class="mi">16</span><span class="p">},</span>
+         <span class="p">{</span><span class="s1">'Nom'</span><span class="p">:</span> <span class="s1">'Bob'</span><span class="p">,</span>   <span class="s1">'Anglais'</span><span class="p">:</span> <span class="mi">19</span><span class="p">,</span> <span class="s1">'Info'</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span> <span class="s1">'Maths'</span><span class="p">:</span> <span class="mi">14</span><span class="p">},</span>
+         <span class="p">{</span><span class="s1">'Nom'</span><span class="p">:</span> <span class="s1">'Carol'</span><span class="p">,</span> <span class="s1">'Anglais'</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span> <span class="s1">'Info'</span><span class="p">:</span> <span class="mi">17</span><span class="p">,</span> <span class="s1">'Maths'</span><span class="p">:</span> <span class="mi">19</span><span class="p">}]</span>
+</code></pre></div>
+<p>On peut trier la table suivant la note d'informatique grâce au projecteur :</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">info_proj</span><span class="p">(</span><span class="n">d</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">d</span><span class="p">[</span><span class="s1">'Info'</span><span class="p">]</span>
+</code></pre></div>
+<p>Ce projecteur prend donc un dictionnaire (<em>un enregistrement</em>) et
+renvoie la valeur à la clé "Info" (<em>le champ "Info"</em>).</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">releve</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">info_proj</span><span class="p">)</span>
+<span class="p">[</span>
+    <span class="p">{</span><span class="s1">'Nom'</span><span class="p">:</span> <span class="s1">'Bob'</span><span class="p">,</span>   <span class="s1">'Anglais'</span><span class="p">:</span> <span class="mi">19</span><span class="p">,</span> <span class="s1">'Info'</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span> <span class="s1">'Maths'</span><span class="p">:</span> <span class="mi">14</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">'Nom'</span><span class="p">:</span> <span class="s1">'Carol'</span><span class="p">,</span> <span class="s1">'Anglais'</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span> <span class="s1">'Info'</span><span class="p">:</span> <span class="mi">17</span><span class="p">,</span> <span class="s1">'Maths'</span><span class="p">:</span> <span class="mi">19</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">'Nom'</span><span class="p">:</span> <span class="s1">'Alice'</span><span class="p">,</span> <span class="s1">'Anglais'</span><span class="p">:</span> <span class="mi">17</span><span class="p">,</span> <span class="s1">'Info'</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span> <span class="s1">'Maths'</span><span class="p">:</span> <span class="mi">16</span><span class="p">},</span>
+<span class="p">]</span>
+</code></pre></div>
+</div>
+<h4 id="exercices">Exercices</h4>
+<div class="admonition example">
+<p class="admonition-title">Trier suivant la moyenne général</p>
+<p>On travaille avec la même table <code>releve</code> que précedemment.</p>
+<ol>
+<li>
+<p>Ecrire le projecteur <code>moyenne_proj</code> qui permet de trier les enregistrements suivant la moyenne générale.</p>
+</li>
+<li>
+<p>En utilisant le paramètre <code>reverse</code>, trier la table <code>reverse</code> par ordre décroissant de moyenne générale.</p>
+</li>
+</ol>
+</div>
+<div class="admonition example">
+<p class="admonition-title">De retour à Poudlard</p>
+<ol>
+<li>
+<p>Trier la table <code>table_hp</code> selon le champ <code>Character Name</code>.</p>
+</li>
+<li>
+<p>Trier la table <code>table_hp</code> selon le champ <code>"House"</code>, <strong>puis</strong> <code>"Character Name"</code>. (on rappelle que Python sait trier par défaut des tuples...)</p>
+</li>
+</ol>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Encore des projecteurs</p>
+<p>On travaille maintenant sur la <a href="../countries.csv">table des pays</a>. Il faudra écrire les bons projecteurs pour répondre aux questions suivantes :</p>
+<ol>
+<li>
+<p>Afficher le nom des pays par ordre décroissant de superficie.</p>
+</li>
+<li>
+<p>Afficher les 10 pays les moins peuplés, dans l’ordre inverse de leur population, sous la forme (pays, population).</p>
+</li>
+<li>
+<p>Afficher les 8 pays possédant la plus grande densité de population, dans l’ordre inverse de densité, sous la forme (pays, densité). (attention aux conversions !)</p>
+</li>
+</ol>
+</div></div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
